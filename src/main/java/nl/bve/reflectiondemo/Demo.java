@@ -16,7 +16,7 @@ public class Demo
         public void setName(String name) { this.name = name;}
 
         public int getPopulation() { return this.population; }
-        public void setPopulation(int pop) { this.population = pop;}
+        public void setPopulation(Integer pop) { this.population = pop;}
 
         public String toString() {
             return "Country: name=" +name+ ", population=" + population;
@@ -48,10 +48,10 @@ public class Demo
 
             Class<?> clazz = toCall.getParameterTypes()[0];
 
-            if (clazz == int.class) {
+            if (clazz == int.class || clazz == Integer.class) {
                 toCall.invoke(country, countryJsonObj.getJsonNumber(key).intValue());
             }
-            if (clazz == double.class) {
+            if (clazz == double.class || clazz == Double.class) {
                 toCall.invoke(country, countryJsonObj.getJsonNumber(key).doubleValue());
             }
             if (clazz == String.class) {
