@@ -5,6 +5,7 @@ import javax.json.JsonObject;
 import javax.json.JsonReader;
 import java.io.StringReader;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 
 public class Demo
 {
@@ -36,7 +37,7 @@ public class Demo
             String methodName = "set" + key.substring(0, 1).toUpperCase() + key.substring(1);
 
             Method toCall = null;
-            for (Method m : country.getClass().getDeclaredMethods()) {
+            for (Method m : country.getClass().getMethods()) {
                 if (m.getName().equals(methodName)) {
                     toCall = m;
                     break;
